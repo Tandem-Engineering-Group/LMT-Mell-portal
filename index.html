@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LMT MELL — Studio Portal</title>
+<style>
+  :root {
+    --bg: #0d0d0f; --panel: #16161a; --line: #26262c;
+    --txt: #e8e6e1; --dim: #9a968e; --hot: #e4572e; --go: #6fcf5f;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--txt);
+    font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif;
+    max-width: 720px; margin: 0 auto; padding: 24px 20px 80px;
+  }
+  header { padding: 36px 0 20px; border-bottom: 2px solid var(--hot); }
+  h1 { font-size: 44px; letter-spacing: 3px; line-height: 1.1; }
+  h1 span { color: var(--hot); }
+  .tag { color: var(--dim); margin-top: 6px; letter-spacing: 1px; }
+  h2 {
+    font-size: 13px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--dim); margin: 40px 0 14px;
+  }
+  .card {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 10px; padding: 16px 18px; margin-bottom: 10px;
+  }
+  .row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .year { color: var(--dim); font-size: 14px; white-space: nowrap; }
+  .title { font-weight: 600; }
+  .feat { color: var(--dim); font-weight: 400; font-size: 14px; }
+  .status { font-size: 13px; color: var(--go); letter-spacing: 1px; }
+  .stats { display: flex; gap: 10px; flex-wrap: wrap; }
+  .stat {
+    flex: 1 1 100px; background: var(--panel); border: 1px solid var(--line);
+    border-radius: 10px; padding: 14px; text-align: center;
+  }
+  .stat b { display: block; font-size: 30px; color: var(--hot); }
+  .stat small { color: var(--dim); letter-spacing: 1px; font-size: 11px; text-transform: uppercase; }
+  .log { border-left: 2px solid var(--line); padding-left: 16px; }
+  .log .entry { margin-bottom: 18px; }
+  .log .date { color: var(--hot); font-size: 13px; letter-spacing: 1px; }
+  a { color: var(--txt); }
+  a.btn {
+    display: inline-block; background: var(--hot); color: #fff; text-decoration: none;
+    padding: 10px 22px; border-radius: 999px; font-weight: 600; margin-top: 14px;
+  }
+  footer { margin-top: 56px; color: var(--dim); font-size: 13px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>LMT <span>MELL</span></h1>
+  <div class="tag">DETROIT &middot; STUDIO PORTAL</div>
+  <a class="btn" href="https://music.apple.com/us/artist/lmt-mell/1509553450">Listen on Apple Music</a>
+</header>
+
+<h2>In the Lab Right Now</h2>
+<div class="card row"><span class="title">Stack Season</span><span class="status">FULL REBUILD — MIXING</span></div>
+<div class="card row"><span class="title">6734</span><span class="status">VOCALS + BEAT UNITED</span></div>
+<div class="card row"><span class="title">Just Like Me</span><span class="status">TAPE SESSION — IN WORK</span></div>
+
+<h2>The Vault</h2>
+<div class="stats">
+  <div class="stat"><b>11</b><small>released</small></div>
+  <div class="stat"><b>219</b><small>sessions recorded</small></div>
+  <div class="stat"><b>72</b><small>beats</small></div>
+</div>
+
+<h2>Releases</h2>
+<div class="card row"><span class="title">Equity</span><span class="year">2026</span></div>
+<div class="card row"><span class="title">TNT <span class="feat">feat. Mafioso98</span></span><span class="year">2026</span></div>
+<div class="card row"><span class="title">In Yo Dreams <span class="feat">feat. Ghost Money &amp; 4eva Jugg</span></span><span class="year">2026</span></div>
+<div class="card row"><span class="title">No Doubt <span class="feat">feat. Onefinesse</span></span><span class="year">2026</span></div>
+<div class="card row"><span class="title">Move Around</span><span class="year">2026</span></div>
+<div class="card row"><span class="title">Ctts</span><span class="year">2025</span></div>
+<div class="card row"><span class="title">Lost Files <span class="feat">feat. TwoNine Jr</span></span><span class="year">2025</span></div>
+<div class="card row"><span class="title">Face Off</span><span class="year">2023</span></div>
+<div class="card row"><span class="title">6738</span><span class="year">2022</span></div>
+<div class="card row"><span class="title">"Plan" X Onefinesse <span class="feat">feat. OneFinesse</span></span><span class="year">&nbsp;</span></div>
+<div class="card row"><span class="title">Different Breed <span class="feat">feat. Ew Rj &amp; OneFinesse</span></span><span class="year">2020</span></div>
+
+<h2>Studio Log</h2>
+<div class="log">
+  <div class="entry">
+    <div class="date">AUG 8, 2026</div>
+    Whole catalog organized and backed up — every session since 2024 is safe and
+    findable. Three tracks on the bench: Stack Season getting a full mix rebuild,
+    6734 with vocals and beat together for the first time, Just Like Me next up.
+  </div>
+  <div class="entry">
+    <div class="date">AUG 7, 2026</div>
+    Full library moved onto the Ableton + Push rig. Every song now plays on
+    hardware — beat, takes, and MIDI broken out to their own channels.
+  </div>
+</div>
+
+<footer>
+  Updated by the studio &middot; latest drops on
+  <a href="https://music.apple.com/us/artist/lmt-mell/1509553450">Apple Music</a>
+</footer>
+
+</body>
+</html>
