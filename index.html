@@ -127,6 +127,19 @@
   .log{border-left:2px solid var(--line); padding-left:18px; max-width:70ch}
   .log .entry{margin-bottom:18px; color:var(--ink2)}
   .log .date{color:var(--amber); font-size:12.5px; letter-spacing:.14em; font-weight:600}
+
+  .listen.ab .abrow{display:flex;flex-wrap:wrap;gap:14px;margin-top:4px}
+  .listen.ab .abcol{flex:1 1 240px}
+  .listen.ab .ablab{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:5px}
+  .listen.ab .ablab.abnew{color:var(--amber);font-weight:600}
+  .abtab{width:100%;border-collapse:collapse;margin-top:12px;font-size:13.5px}
+  .abtab th{text-align:left;color:var(--ink3);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px 4px 0;border-bottom:1px solid var(--line)}
+  .abtab td{padding:5px 10px 5px 0;border-bottom:1px solid var(--line);color:var(--ink2)}
+  .abtab td.mono{font-variant-numeric:tabular-nums}
+  .abtab td.up{color:var(--ok);font-weight:600}
+  .abtab td.dn{color:var(--hot);font-weight:600}
+  .abcap{font-size:13px;color:var(--ink3);margin:10px 0 0;max-width:66ch}
+  .abcap b{color:var(--ink2)}
 </style>
 
 <div class="wrap">
@@ -158,11 +171,15 @@
     <span class="verdict">furthest out — new ground</span>
   </div>
   <p class="credits">lmt × OwnLane × RelSleaze · over his own <b>terps</b> beat, sped +2 semitones</p>
-  <div class="listen">
-    <div class="lhead"><span class="ldot"></span>Where it's at &nbsp;·&nbsp; <span class="lcap">FL bounce · Jul 27 session mix</span></div>
-    <audio controls preload="metadata" src="audio/stack-season.mp3"></audio>
+  <div class="listen ab">
+    <div class="lhead"><span class="ldot"></span>A/B — where it's at &nbsp;·&nbsp; <span class="lcap">before vs after today's session</span></div>
+    <div class="abrow">
+      <div class="abcol"><div class="ablab">FL session bounce — before</div><audio controls preload="metadata" src="audio/stack-season-before.mp3"></audio></div>
+      <div class="abcol"><div class="ablab abnew">Studio render — after today's session</div><audio controls preload="metadata" src="audio/stack-season-after.mp3"></audio></div>
+    </div>
+    <table class="abtab"><tr><th>measure</th><th>before</th><th>after</th><th>Δ</th></tr><tr><td>Sub 20–60 Hz ★</td><td class="mono">-22.3 dB</td><td class="mono">-4.3 dB</td><td class="mono up">▲ +18.0</td></tr><tr><td>Bass</td><td class="mono">-3.8 dB</td><td class="mono">-9.3 dB</td><td class="mono ">▼ -5.5</td></tr><tr><td>Presence</td><td class="mono">-15.6 dB</td><td class="mono">-20.9 dB</td><td class="mono ">▼ -5.3</td></tr><tr><td>Air</td><td class="mono">-10.2 dB</td><td class="mono">-19.5 dB</td><td class="mono ">▼ -9.3</td></tr><tr><td>Loudness (LUFS)</td><td class="mono">-12.3</td><td class="mono">-17.6</td><td class="mono ">▼ -5.3</td></tr></table><p class="abcap">The <b>after</b> is a rough offline render of the cleaned studio session — measured balance + the restored 808 sub, <b>not yet mastered</b> (so it's quieter and more dynamic). The headline is the low end: sub content went from −22 dB to −4 dB. Your real bounce replaces this the moment you record it.</p>
   </div>
-  <div class="chips">
+<div class="chips">
     <span class="chip"><b>~202</b> BPM felt (180 grid)</span>
     <span class="chip"><b>D♯ minor</b></span>
     <span class="chip"><b>2:25</b></span>
