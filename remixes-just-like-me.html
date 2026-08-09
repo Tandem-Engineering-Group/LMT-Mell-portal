@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#14161a">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f0ede6">
 <meta name="robots" content="noindex, nofollow">
 <title>LMT MELL — JUST LIKE ME Mixes</title>
 </head>
@@ -148,6 +150,14 @@
     padding:22px 26px;margin:44px 0}
   .notesbox p{color:var(--ink2);max-width:70ch;margin:8px 0}
   .notesbox p b{color:var(--ink)}
+
+  /* --- site-wide usability pass --- */
+  a:focus-visible,audio:focus-visible,summary:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+  audio{max-width:100%}
+  @media (max-width:560px){
+    .verdict{white-space:normal;margin-left:0}
+    section.song{padding:20px 16px 24px}
+  }
 </style>
 
 <div class="wrap">
@@ -167,7 +177,7 @@
   <div class="songhead"><span class="code disp">A/B</span><h2>THE STARTING POINT</h2>
   <span class="verdict">done record, scooped middle</span></div>
   <div class="listen"><div class="lhead"><span class="ldot"></span>Aug 2 final bounce — the tape's first done record</div>
-  <audio controls preload="metadata" src="audio/just-like-me.mp3"></audio></div>
+  <audio aria-label="Just Like Me — final bounce (starting point)" controls preload="metadata" src="audio/just-like-me.mp3"></audio></div>
   <p class="abcap">Loudness is already right (−11.9 LUFS, dead on catalog). The problems are surgical:
   <b>a −5.3 dB mid scoop at 500–2k</b> that puts the vocal behind glass on small speakers, intersample
   overs at four spots, and the <b>flattest arc in the batch</b> (~2.5 LU start-to-finish). Low end is
@@ -178,7 +188,7 @@
   <div class="songhead"><span class="code disp">S1</span><h2>Mids back</h2></div>
   <p class="credits">The minimum fix: +3 dB @ 1.2 kHz and +1.5 @ 3.5 kHz — the vocal steps out from behind the glass. Overs repaired, proper −1 dBTP ceiling.</p>
   <div class="listen"><div class="lhead"><span class="ldot"></span>Listen · full length</div>
-  <audio controls preload="metadata" src="audio/previews/just-like-me-s1-mids-back.mp3"></audio></div>
+  <audio aria-label="S1 — mids back" controls preload="metadata" src="audio/previews/just-like-me-s1-mids-back.mp3"></audio></div>
   <div class="chips"><span class="chip"><b>+3 dB</b> @ 1.2 kHz</span><span class="chip"><b>+2.5 dB</b> vocal band</span><span class="chip"><b>−1.0</b> dBTP, overs gone</span></div>
   <a class="notebtn" href="https://github.com/Tandem-Engineering-Group/LMT-Mell-portal/issues/new?title=Mix+notes%3A+JUST+LIKE+ME+%28A03%29+S1+%E2%80%94+Mids+back&body=%2A%2ATrack%3A%2A%2A+JUST+LIKE+ME+%28A03%29%0A%2A%2AMix%3A%2A%2A+S1+%E2%80%94+Mids+back%0A%2A%2ATimestamp%28s%29%3A%2A%2A+%0A%2A%2AWhat+I+hear+%2F+what+I+want%3A%2A%2A+%0A%0A_Filed+from+the+portal+%E2%80%94+these+notes+get+pulled+into+the+mastering+session._" target="_blank" rel="noopener">✎ Drop mastering notes</a>
 </section>
@@ -186,7 +196,7 @@
   <div class="songhead"><span class="code disp">S2</span><h2>Catalog tone</h2></div>
   <p class="credits">The full profile correction: mids +4 toward target, presence +1.8, air +1.1, bass trimmed −1.4. Biggest audible upgrade on phone speakers.</p>
   <div class="listen"><div class="lhead"><span class="ldot"></span>Listen · full length</div>
-  <audio controls preload="metadata" src="audio/previews/just-like-me-s2-catalog-tone.mp3"></audio></div>
+  <audio aria-label="S2 — catalog tone" controls preload="metadata" src="audio/previews/just-like-me-s2-catalog-tone.mp3"></audio></div>
   <div class="chips"><span class="chip"><b>+3.8 dB</b> mid band net</span><span class="chip"><b>closest</b> to released profile</span><span class="chip"><b>−11.9</b> LUFS</span></div>
   <a class="notebtn" href="https://github.com/Tandem-Engineering-Group/LMT-Mell-portal/issues/new?title=Mix+notes%3A+JUST+LIKE+ME+%28A03%29+S2+%E2%80%94+Catalog+tone&body=%2A%2ATrack%3A%2A%2A+JUST+LIKE+ME+%28A03%29%0A%2A%2AMix%3A%2A%2A+S2+%E2%80%94+Catalog+tone%0A%2A%2ATimestamp%28s%29%3A%2A%2A+%0A%2A%2AWhat+I+hear+%2F+what+I+want%3A%2A%2A+%0A%0A_Filed+from+the+portal+%E2%80%94+these+notes+get+pulled+into+the+mastering+session._" target="_blank" rel="noopener">✎ Drop mastering notes</a>
 </section>
@@ -194,7 +204,7 @@
   <div class="songhead"><span class="code disp">S3</span><h2>Arc pass</h2></div>
   <p class="credits">S1's tone plus macro movement printed in: intro eases in from −1.6, hooks lift +1.3 (1:26 and 2:16), tail bows out. Answers the flat-arc question by demonstration.</p>
   <div class="listen"><div class="lhead"><span class="ldot"></span>Listen · full length</div>
-  <audio controls preload="metadata" src="audio/previews/just-like-me-s3-arc-pass.mp3"></audio></div>
+  <audio aria-label="S3 — arc pass" controls preload="metadata" src="audio/previews/just-like-me-s3-arc-pass.mp3"></audio></div>
   <div class="chips"><span class="chip"><b>6</b> automation nodes</span><span class="chip"><b>+1.3 dB</b> hook lifts</span><span class="chip"><b>−1.6</b> dB intro ease</span></div>
   <a class="notebtn" href="https://github.com/Tandem-Engineering-Group/LMT-Mell-portal/issues/new?title=Mix+notes%3A+JUST+LIKE+ME+%28A03%29+S3+%E2%80%94+Arc+pass&body=%2A%2ATrack%3A%2A%2A+JUST+LIKE+ME+%28A03%29%0A%2A%2AMix%3A%2A%2A+S3+%E2%80%94+Arc+pass%0A%2A%2ATimestamp%28s%29%3A%2A%2A+%0A%2A%2AWhat+I+hear+%2F+what+I+want%3A%2A%2A+%0A%0A_Filed+from+the+portal+%E2%80%94+these+notes+get+pulled+into+the+mastering+session._" target="_blank" rel="noopener">✎ Drop mastering notes</a>
 </section>
@@ -202,7 +212,7 @@
   <div class="songhead"><span class="code disp">S4</span><h2>Crisp tape</h2></div>
   <p class="credits">Sub −2, low-mid tightened, +2 mids, +2.5 air, light transient snap — the brightest, snappiest read of the tape aesthetic.</p>
   <div class="listen"><div class="lhead"><span class="ldot"></span>Listen · full length</div>
-  <audio controls preload="metadata" src="audio/previews/just-like-me-s4-crisp-tape.mp3"></audio></div>
+  <audio aria-label="S4 — crisp tape" controls preload="metadata" src="audio/previews/just-like-me-s4-crisp-tape.mp3"></audio></div>
   <div class="chips"><span class="chip"><b>+2.5</b> air shelf</span><span class="chip"><b>+20%</b> transient snap</span><span class="chip"><b>−2 dB</b> sub shelf</span></div>
   <a class="notebtn" href="https://github.com/Tandem-Engineering-Group/LMT-Mell-portal/issues/new?title=Mix+notes%3A+JUST+LIKE+ME+%28A03%29+S4+%E2%80%94+Crisp+tape&body=%2A%2ATrack%3A%2A%2A+JUST+LIKE+ME+%28A03%29%0A%2A%2AMix%3A%2A%2A+S4+%E2%80%94+Crisp+tape%0A%2A%2ATimestamp%28s%29%3A%2A%2A+%0A%2A%2AWhat+I+hear+%2F+what+I+want%3A%2A%2A+%0A%0A_Filed+from+the+portal+%E2%80%94+these+notes+get+pulled+into+the+mastering+session._" target="_blank" rel="noopener">✎ Drop mastering notes</a>
 </section>
@@ -238,10 +248,21 @@
   (needs a GitHub login) tagged with the track and mix — add a timestamp and what you hear.
   Nothing else required.</p>
   <p>When JUST LIKE ME goes to master, the notes are pulled straight off the board into the session
-  checklist. <a href="https://github.com/Tandem-Engineering-Group/LMT-Mell-portal/issues" style="color:var(--amber)">View the notes board →</a></p>
+  checklist. <a href="https://github.com/Tandem-Engineering-Group/LMT-Mell-portal/issues" target="_blank" rel="noopener" style="color:var(--amber)">View the notes board →</a></p>
 </section>
 <footer>Style series built 2026-08-09 from the bounce · full method: <span class="file">07 Mix Previews (remote)/REPORT.md</span> in the vault ·
 consolidated beat MIDI in <span class="file">03 FL Exports/MIDI parts (SIMPLIFIED)</span>.</footer>
 </div>
+
+<script>
+/* one player at a time — starting any player pauses the others */
+document.addEventListener('play', function (e) {
+  if (e.target && e.target.tagName === 'AUDIO') {
+    document.querySelectorAll('audio').forEach(function (a) {
+      if (a !== e.target) a.pause();
+    });
+  }
+}, true);
+</script>
 </body>
 </html>
