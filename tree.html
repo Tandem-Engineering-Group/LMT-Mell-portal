@@ -5,17 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>LMT MELL — The Tree</title>
 <style>
-  :root { --bg:#0d0d0f; --panel:#16161a; --line:#26262c;
-          --txt:#e8e6e1; --dim:#9a968e; --hot:#e4572e; --go:#6fcf5f; }
+  :root { --bg:#f0ede6; --panel:#faf8f3; --line:#ddd8cd;
+          --txt:#23252a; --dim:#5c5a54; --hot:#b57718; --go:#3d8a54; }
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+    --bg:#14161a; --panel:#1b1e24; --line:#2c313a;
+    --txt:#e9e6df; --dim:#a8a69e; --hot:#e8a33d; --go:#7dc98f; }}
+  :root[data-theme="dark"]{ --bg:#14161a; --panel:#1b1e24; --line:#2c313a;
+    --txt:#e9e6df; --dim:#a8a69e; --hot:#e8a33d; --go:#7dc98f; }
   * { margin:0; padding:0; box-sizing:border-box; }
   body { background:var(--bg); color:var(--txt);
          font:15px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;
          max-width:820px; margin:0 auto; padding:24px 20px 80px; }
   header { padding:28px 0 16px; border-bottom:2px solid var(--hot); margin-bottom:20px; }
-  h1 { font-size:34px; letter-spacing:2px; } h1 span { color:var(--hot); }
+  h1 { font-size:34px; letter-spacing:2px; font-family:"Bahnschrift","Bahnschrift Condensed","Arial Narrow",system-ui,sans-serif; } h1 span { color:var(--hot); }
   .tag { color:var(--dim); letter-spacing:1px; margin-top:4px; }
   a { color:var(--txt); }
-  a.btn { display:inline-block; background:var(--hot); color:#fff; text-decoration:none;
+  a.btn { display:inline-block; background:var(--hot); color:var(--bg); text-decoration:none;
           padding:10px 22px; border-radius:999px; font-weight:600; margin:14px 10px 0 0; }
   a.btn.ghost { background:transparent; border:1px solid var(--line); color:var(--txt); }
   details { background:var(--panel); border:1px solid var(--line); border-radius:10px;
@@ -26,7 +31,7 @@
   details[open] summary::before { content:"\2212 "; }
   summary small { color:var(--dim); font-weight:400; letter-spacing:0; float:right; }
   .inner { padding:4px 16px 14px; }
-  details details { margin:6px 0; background:#101013; }
+  details details { margin:6px 0; background:var(--bg); }
   ul { list-style:none; }
   li { padding:2px 0 2px 14px; border-left:1px solid var(--line); margin-left:6px;
        color:var(--txt); font-size:14px; }
@@ -41,7 +46,7 @@
 <body>
 <header>
   <h1>LMT <span>MELL</span> — THE TREE</h1>
-  <div class="tag">EVERY FOLDER IN THE CATALOG &middot; UPDATED AUG 08, 2026</div>
+  <div class="tag">EVERY FOLDER IN THE CATALOG &middot; UPDATED AUG 09, 2026</div>
   <a class="btn" href="https://github.com/Tandem-Engineering-Group/LMT-Mell/tree/main/_INBOX%20FROM%20LMT" target="_blank" rel="noopener">Send files to the studio</a>
   <a class="btn ghost" href="index.html">&larr; Portal</a>
   <a class="btn ghost" href="album.html">THE NIGHT SHIFT</a>
@@ -49,6 +54,7 @@
   <a class="btn ghost" href="remixes-6734.html">A02 Remixes</a>
   <a class="btn ghost" href="remixes-just-like-me.html">A03 Remixes</a>
 </header>
+<div class="note"><b>Aug 9:</b> A01–A03 each gained <span class="code">07 Mix Previews (remote)</span> (FINAL mixes, presentation maps, board guides) and <span class="code">03 FL Exports\MIDI parts (SIMPLIFIED / FINAL - recommended)</span> — full file listings land on the next tree export. The 7-track tape plan lives on <a href="album.html" style="color:var(--hot)">THE NIGHT SHIFT</a> tab.</div>
 <div class="note">This is the working catalog — folder names only, the music itself
 stays in the studio. <b>To send files:</b> the button above drops you into the studio
 inbox (GitHub sign-in required — ask for the invite). Anything under 100&nbsp;MB uploads
