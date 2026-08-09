@@ -131,3 +131,25 @@ give the mix a stereo story — vox stacks ±15–30, keys ±20, percs ±10–25
 differentiate the vox stack (lead lanes −11, stacks −14/−16 instead of twelve × −14);
 master bus stays glue + limiter −1 dBTP into ≈ −11.8 LUFS.
 The FINAL preview (`stack-season-final.mp3`, portal) is the reference for all of it.
+
+
+---
+
+# PACK v3 — external-review pass (2026-08-09, third run)
+
+An outside critical review flagged the pack's low end as broken in opposite directions.
+Verified against the shipped files and largely correct:
+- 6734: 78% of energy below 60 Hz (50% in 40–50 alone), 60–120 punch hole — CONFIRMED, fixed
+  (fundamental −8 dB + saturation harmonics; now 34% sub, punch +3.8 dB).
+- Just Like Me: 77% below 60 — CONFIRMED, fixed (30%, bass +4.4 dB); 808 drops printed into
+  both hooks + hats stripped opening verse 2 (the LRA flatline fix).
+- Stack Season: 4.5% below 60, no chest — CONFIRMED, fixed (synthesized octave-down sub, 25%);
+  and the shipped mp3 really did clip at +0.29 dBTP (encode overshoot past the WAV's −1.0
+  ceiling — our defect, caught fairly). All v3 encodes are now decode-verified ≤ −1.17 dBTP.
+- All three: dynamic vocal presence lift + light 6–8.5 kHz de-ess + top-only widening
+  (lows stay mono).
+- Where we pushed back: their "123 BPM / B♭ major" reads are triplet-grid and relative-key
+  aliases of 185 / D♯m–Gm; and the pack masters to −10.5/−11 LUFS rather than their −8.5,
+  respecting the catalog's measured dynamics trend (streaming normalizes to −14 anyway).
+  Going hotter is one parameter if the room disagrees.
+- Their reminder stands: these mp3s are previews — distribute from 24-bit WAVs out of the session.
