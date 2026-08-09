@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#14161a">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f0ede6">
 <meta name="robots" content="noindex, nofollow">
 <title>LMT MELL — Studio Portal</title>
 </head>
@@ -140,6 +142,14 @@
   .abtab td.dn{color:var(--hot);font-weight:600}
   .abcap{font-size:13px;color:var(--ink3);margin:10px 0 0;max-width:66ch}
   .abcap b{color:var(--ink2)}
+
+  /* --- site-wide usability pass --- */
+  a:focus-visible,audio:focus-visible,summary:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+  audio{max-width:100%}
+  @media (max-width:560px){
+    .verdict{white-space:normal;margin-left:0}
+    section.song{padding:20px 16px 24px}
+  }
 </style>
 
 <div class="wrap">
@@ -155,7 +165,7 @@
     <a href="remixes-6734.html">A02 Remixes</a>
     <a href="remixes-just-like-me.html">A03 Remixes</a>
     <a href="tree.html">Browse the Tree</a>
-    <a href="https://github.com/Tandem-Engineering-Group/LMT-Mell/tree/main/_INBOX%20FROM%20LMT">Send Files</a>
+    <a href="https://github.com/Tandem-Engineering-Group/LMT-Mell/tree/main/_INBOX%20FROM%20LMT" target="_blank" rel="noopener">Send Files</a>
   </div>
 </header>
 
@@ -177,8 +187,8 @@
   <div class="listen ab">
     <div class="lhead"><span class="ldot"></span>A/B — where it's at &nbsp;·&nbsp; <span class="lcap">before vs after today's session</span></div>
     <div class="abrow">
-      <div class="abcol"><div class="ablab">FL session bounce — before</div><audio controls preload="metadata" src="audio/stack-season-before.mp3"></audio></div>
-      <div class="abcol"><div class="ablab abnew">Studio render — after today's session</div><audio controls preload="metadata" src="audio/stack-season-after.mp3"></audio></div>
+      <div class="abcol"><div class="ablab">FL session bounce — before</div><audio aria-label="Stack Season — FL bounce (before)" controls preload="metadata" src="audio/stack-season-before.mp3"></audio></div>
+      <div class="abcol"><div class="ablab abnew">Studio render — after today's session</div><audio aria-label="Stack Season — studio render (after)" controls preload="metadata" src="audio/stack-season-after.mp3"></audio></div>
     </div>
     <table class="abtab"><tr><th>measure</th><th>before</th><th>after</th><th>Δ</th></tr><tr><td>Sub 20–60 Hz ★</td><td class="mono">-22.3 dB</td><td class="mono">-4.3 dB</td><td class="mono up">▲ +18.0</td></tr><tr><td>Bass</td><td class="mono">-3.8 dB</td><td class="mono">-9.3 dB</td><td class="mono ">▼ -5.5</td></tr><tr><td>Presence</td><td class="mono">-15.6 dB</td><td class="mono">-20.9 dB</td><td class="mono ">▼ -5.3</td></tr><tr><td>Air</td><td class="mono">-10.2 dB</td><td class="mono">-19.5 dB</td><td class="mono ">▼ -9.3</td></tr><tr><td>Loudness (LUFS)</td><td class="mono">-12.3</td><td class="mono">-17.6</td><td class="mono ">▼ -5.3</td></tr></table><p class="abcap"><a href="remixes.html" style="color:var(--amber)">Four corrective remixes of this render are up → </a>The <b>after</b> is a rough offline render of the cleaned studio session — measured balance + the restored 808 sub, <b>not yet mastered</b> (so it's quieter and more dynamic; presence/air read low for the same reason). The headline is the low end: sub content went from −22 dB to −4 dB. Your real bounce replaces this the moment you record it.</p>
   </div>
@@ -245,7 +255,7 @@
   <p class="credits">LMT × Bandup · his own beat: Purity keys, violins, Detroit kit — built and cut the same night</p>
   <div class="listen">
     <div class="lhead"><span class="ldot"></span>Where it's at &nbsp;·&nbsp; <span class="lcap">FL bounce · Jul 13 session mix (the hot one — see the read)</span></div>
-    <audio controls preload="metadata" src="audio/6734.mp3"></audio>
+    <audio aria-label="6734 — FL bounce" controls preload="metadata" src="audio/6734.mp3"></audio>
   </div>
   <div class="chips">
     <span class="chip"><b>185</b> BPM</span>
@@ -307,7 +317,7 @@
   <p class="credits">Solo · the Exotic Express beat · three saves, one linear session — nothing was lost between them</p>
   <div class="listen">
     <div class="lhead"><span class="ldot"></span>Where it's at &nbsp;·&nbsp; <span class="lcap">Final FL bounce · Aug 2</span></div>
-    <audio controls preload="metadata" src="audio/just-like-me.mp3"></audio>
+    <audio aria-label="Just Like Me — final bounce" controls preload="metadata" src="audio/just-like-me.mp3"></audio>
   </div>
   <div class="chips">
     <span class="chip"><b>185</b> BPM</span>
@@ -419,7 +429,7 @@
     </table>
     <p style="color:var(--ink3); font-size:13px; margin:10px 0 0">Loudness measured from streaming rips (BS.1770).
     "Recorded as" = the session name in the vault; three matches took detective work, one by audio fingerprint (TNT).
-    Pre-2024 releases predate the files Mell sent. <a href="https://music.apple.com/us/artist/lmt-mell/1509553450" style="color:var(--amber)">Stream them on Apple Music →</a></p>
+    Pre-2024 releases predate the files Mell sent. <a href="https://music.apple.com/us/artist/lmt-mell/1509553450" target="_blank" rel="noopener" style="color:var(--amber)">Stream them on Apple Music →</a></p>
   </div>
   <div class="closecard" style="margin-top:14px">
     <h4>The tree</h4>
@@ -453,7 +463,18 @@
   391 FL projects · take-level diff of every session save · full-catalog byte-scan. Studio sessions validated against
   Ableton's own schema and portable (relative paths). Adversarially cross-checked: two of the four "unrecorded"
   tape candidates turned out to be recorded (corrected above), and A02's take count was corrected from 79 to 74.
- Shared for LMT Mell — unreleased material, not for distribution. Latest drops on <a href="https://music.apple.com/us/artist/lmt-mell/1509553450" style="color:var(--amber)">Apple Music</a>.</footer>
+ Shared for LMT Mell — unreleased material, not for distribution. Latest drops on <a href="https://music.apple.com/us/artist/lmt-mell/1509553450" target="_blank" rel="noopener" style="color:var(--amber)">Apple Music</a>.</footer>
 </div>
+
+<script>
+/* one player at a time — starting any player pauses the others */
+document.addEventListener('play', function (e) {
+  if (e.target && e.target.tagName === 'AUDIO') {
+    document.querySelectorAll('audio').forEach(function (a) {
+      if (a !== e.target) a.pause();
+    });
+  }
+}, true);
+</script>
 </body>
 </html>
