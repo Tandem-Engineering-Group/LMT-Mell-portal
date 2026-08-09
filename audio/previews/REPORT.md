@@ -68,3 +68,66 @@ Same beat, cleaner lane count — drop this into the session in place of the 12-
    audio out of git, so the full preview mp3s live in the **portal repo** under
    `audio/previews/` (branch `claude/remastered-track-progress-ybfxpx`); this
    folder holds them locally once synced.
+
+---
+
+# FINAL REBUILD — component-informed (2026-08-09, second pass)
+
+Built after a full audit of everything in the song's feed: the Mix 4 v2 render
+(time-resolved, 8-bar blocks at 202.04 bpm), the complete channel list of both
+Ableton sets, and every note of the 7-track beat MIDI.
+
+## What the feed audit found
+
+**Session (FULL BREAKOUT set):** FULL MIX + REF + 3 beat audio lanes (−11 dB)
++ 12 vox lanes (−14 dB) + **16 beat-MIDI lanes** (−19.4) + reverb/delay returns.
+The 16 MIDI lanes include 4× Snare, 2× 808, 3× Perc, 3× 313 LIT — the SIMPLIFIED/FINAL
+7-track MIDI replaces all 16. **Every track is panned dead center** and all 12 vox
+lanes sit at identical level — the mix has no left-right story and no lead/stack hierarchy yet.
+
+**MIDI, note by note (2,704 notes):**
+- **HH — 719 notes, every one velocity 100.** Machine-gun flat. *(changed)*
+- **808 — 156 hits, all velocity 112**, 0.75-beat gates, C#4 trigger. *(changed)*
+- **Keys — 812 notes, 48 same-pitch overlaps smearing sustains.** The 209 E-naturals
+  (E5×140) against D♯ minor are the deliberate Phrygian ♭2 riff color — kept. *(changed)*
+- **Snare — already has ghost notes (vel 11–100).** Untouched.
+- **Clap — already humanized (12 velocities).** Untouched.
+- **Perc — 3 interleaved voices, overlaps intentional.** Untouched.
+- **Violin — clean 2-beat legato lines, same ♭2 color.** Untouched.
+
+## Changes applied — `03 FL Exports/MIDI parts (FINAL - recommended)/`
+
+1. **HH accent map**: bar downbeats 110 · beat heads 104 · 8th offbeats 92 · 16th fills 80,
+   +10 lift on every 4-bar phrase end. Same notes, human groove.
+2. **808 accents**: downbeat hits 118, others 106.
+3. **Keys de-smear**: all 48 same-pitch overlaps trimmed (sustain releases 10 ticks
+   before its own re-strike).
+4. Everything else passed clean and is copied through unchanged.
+   `terps (FINAL - 7 tracks).mid` = the whole beat, one file.
+
+## Audio: FINAL vs Mix 4 v2 (all verified at bar level)
+
+- Air shelf 1.8 → **1.2 dB** (v2 ran bright vs the bounce).
+- **+0.6 dB vocal band, bars 33–56 only** (0:38–1:06 — the measured vocal-share dip). Control bars 57–80: unchanged.
+- **+0.6 dB air, bars 105–112 only** (2:03–2:13 — outro sheen was collapsing).
+- Duck 2.2 → 2.0 dB, breathe 0.8 → 0.7 (realized pump ≈ −1.1 dB on kicks — musical, not obvious).
+- Master unchanged: −11.8 LUFS (reads −12.0), −1.0 dBTP, crest 14.4.
+
+## Per-channel recommendations over the song (bar map @ 202 bpm, bar ≈ 1.19 s)
+
+| Channel(s) | Bars 1–8 (0:00–0:09) | 9–32 (0:09–0:38) | 33–56 (0:38–1:06) | 57–80 (1:06–1:35) | 81–104 (1:35–2:03) | 105–120 (2:03–2:22) |
+|---|---|---|---|---|---|---|
+| **Vox 1/3/5** (lead comps) | wide open intro — keep dry | set the level here | **+1 dB ride** (the dip) | hook — leave | match 9–32 | last hook +0.5 |
+| **Vox 2/4…12** (stacks) | mute all but 2 | −2 vs lead | −2 vs lead | full stack in | thin to 2 lanes | full stack out by 112 |
+| **terps 1–3** (beat audio) | tail out of intro by bar 8 | anchor −11 dB | −1 dB (make vox room) | back to −11 | −11 | fade from 113 |
+| **808 lane** (use FINAL midi) | out | accents carry | leave | leave | leave | last hit ring out |
+| **HH lane** (use FINAL midi) | out | accent map carries | −1.5 dB if vox still crowded | full | full | out by 116 |
+| **Keys** | out (or solo pad) | HPF 180 Hz always | de-smeared file fixes mud | leave | leave | let last chord ring |
+| **Violin** | out | 12% send → A-Reverb | same | +1 dB under hook | same | ring into fade |
+| **Snare/Clap/Perc** | out | as-is (already humanized) | as-is | as-is | as-is | out by 116 |
+
+**Overall:** kill the two duplicate 808 lanes and four Snare lanes (FINAL MIDI = 7 lanes total);
+give the mix a stereo story — vox stacks ±15–30, keys ±20, percs ±10–25, lead/808/snare center;
+differentiate the vox stack (lead lanes −11, stacks −14/−16 instead of twelve × −14);
+master bus stays glue + limiter −1 dBTP into ≈ −11.8 LUFS.
+The FINAL preview (`stack-season-final.mp3`, portal) is the reference for all of it.
