@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>LMT MELL — Stack Season Remixes</title>
+</head>
+<body>
+<style>
+  :root{
+    --bg:#14161a; --panel:#1b1e24; --panel2:#20242b; --line:#2c313a;
+    --ink:#e9e6df; --ink2:#a8a69e; --ink3:#7c7a74;
+    --amber:#e8a33d; --steel:#8fb3c9; --ok:#7dc98f; --hot:#d96b5f;
+    --chip:#262b33;
+  }
+  @media (prefers-color-scheme: light){:root{
+    --bg:#f0ede6; --panel:#faf8f3; --panel2:#f3f0e9; --line:#ddd8cd;
+    --ink:#23252a; --ink2:#5c5a54; --ink3:#8b887f;
+    --amber:#b57718; --steel:#4a7a99; --ok:#3d8a54; --hot:#b54334;
+    --chip:#e8e4da;
+  }}
+  :root[data-theme="dark"]{
+    --bg:#14161a; --panel:#1b1e24; --panel2:#20242b; --line:#2c313a;
+    --ink:#e9e6df; --ink2:#a8a69e; --ink3:#7c7a74;
+    --amber:#e8a33d; --steel:#8fb3c9; --ok:#7dc98f; --hot:#d96b5f;
+    --chip:#262b33;
+  }
+  :root[data-theme="light"]{
+    --bg:#f0ede6; --panel:#faf8f3; --panel2:#f3f0e9; --line:#ddd8cd;
+    --ink:#23252a; --ink2:#5c5a54; --ink3:#8b887f;
+    --amber:#b57718; --steel:#4a7a99; --ok:#3d8a54; --hot:#b54334;
+    --chip:#e8e4da;
+  }
+  *{box-sizing:border-box}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:"Segoe UI",system-ui,-apple-system,sans-serif;
+    font-size:16px; line-height:1.55; margin:0; padding:0 20px 80px;
+  }
+  .wrap{max-width:1020px; margin:0 auto}
+  h1,h2,h3,.disp{font-family:"Bahnschrift","Bahnschrift Condensed","Arial Narrow",system-ui,sans-serif}
+  .mono{font-family:Consolas,ui-monospace,monospace; font-variant-numeric:tabular-nums}
+
+  header{padding:56px 0 28px; border-bottom:2px solid var(--amber)}
+  .eyebrow{color:var(--amber); text-transform:uppercase; letter-spacing:.22em; font-size:12px; font-weight:600}
+  h1{font-size:clamp(34px,6vw,58px); line-height:1.02; margin:10px 0 8px; text-wrap:balance; letter-spacing:.01em}
+  .sub{color:var(--ink2); max-width:64ch}
+
+  .runline{display:flex; flex-wrap:wrap; gap:0; margin:34px 0 10px; border-left:2px solid var(--line)}
+  .run{flex:1 1 150px; min-width:150px; padding:10px 14px 12px; border-right:2px solid var(--line); border-top:2px solid var(--line); border-bottom:2px solid var(--line); background:var(--panel)}
+  .run .d{color:var(--amber); font-size:12px; letter-spacing:.14em; text-transform:uppercase; font-weight:600}
+  .run .t{font-weight:600; margin:2px 0}
+  .run .n{color:var(--ink2); font-size:13.5px}
+
+  section.song{background:var(--panel); border:1px solid var(--line); border-top:3px solid var(--amber); margin:44px 0; padding:26px 28px 30px}
+  .songhead{display:flex; flex-wrap:wrap; align-items:baseline; gap:12px 18px}
+  .code{color:var(--ink3); font-weight:600; letter-spacing:.1em}
+  h2{font-size:clamp(24px,3.6vw,34px); margin:0}
+  .verdict{margin-left:auto; background:var(--chip); border:1px solid var(--line); color:var(--amber); padding:4px 12px; font-size:12.5px; letter-spacing:.12em; text-transform:uppercase; font-weight:600; white-space:nowrap}
+  .credits{color:var(--ink2); margin:4px 0 0; font-size:14.5px}
+
+  .chips{display:flex; flex-wrap:wrap; gap:8px; margin:18px 0 6px}
+  .chip{background:var(--chip); border:1px solid var(--line); padding:5px 11px; font-size:13.5px; color:var(--ink2)}
+  .chip b{color:var(--ink); font-weight:600}
+  .chip.hot{border-color:var(--hot); color:var(--hot)} .chip.hot b{color:var(--hot)}
+  .chip.ok{border-color:var(--ok); color:var(--ok)} .chip.ok b{color:var(--ok)}
+
+  .meters{margin:22px 0 8px; background:var(--panel2); border:1px solid var(--line); padding:16px 18px 12px}
+  .meters .mhead{display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:6px}
+  .meters h3{margin:0 0 4px; font-size:15px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink2)}
+  .legend{font-size:12.5px; color:var(--ink3)}
+  .legend .sw{display:inline-block; width:14px; height:8px; background:var(--amber); vertical-align:middle; margin:0 4px 1px 10px; border-radius:2px}
+  .legend .tk{display:inline-block; width:3px; height:12px; background:var(--steel); vertical-align:middle; margin:0 4px 1px 10px}
+  .band{display:grid; grid-template-columns:82px 1fr 128px; gap:10px; align-items:center; padding:5px 0}
+  .band .bl{font-size:13px; color:var(--ink2); text-transform:uppercase; letter-spacing:.08em}
+  .rail{position:relative; height:14px; background:var(--bg); border:1px solid var(--line)}
+  .fill{position:absolute; left:0; top:2px; bottom:2px; background:var(--amber); border-radius:0 3px 3px 0; min-width:2px}
+  .band.flag .fill{background:var(--hot)}
+  .tick{position:absolute; top:-3px; bottom:-3px; width:3px; background:var(--steel)}
+  .band .bv{font-size:13px; color:var(--ink3); text-align:right}
+  .band .bv b{color:var(--ink); font-weight:600}
+  .mfoot{font-size:13px; color:var(--ink3); margin-top:8px}
+  .mfoot em{color:var(--hot); font-style:normal; font-weight:600}
+
+  .cols{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:20px}
+  @media (max-width:760px){.cols{grid-template-columns:1fr}}
+  h4{margin:0 0 8px; font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--amber);
+     font-family:"Bahnschrift","Arial Narrow",sans-serif}
+  ul{margin:0; padding-left:18px} li{margin:0 0 7px; color:var(--ink2)} li b{color:var(--ink); font-weight:600}
+  .read p{margin:0 0 12px; color:var(--ink2); max-width:66ch} .read p b{color:var(--ink)}
+  .bring li::marker{color:var(--amber)}
+  .did li::marker{color:var(--ok)}
+  .file{background:var(--chip); border:1px solid var(--line); padding:1px 7px; font-size:13px; font-family:Consolas,ui-monospace,monospace}
+
+  .closing{margin:52px 0 0}
+  .closing .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; margin-top:16px}
+  .closecard{background:var(--panel); border:1px solid var(--line); padding:18px 20px}
+  footer{margin-top:56px; color:var(--ink3); font-size:13px; border-top:1px solid var(--line); padding-top:14px; max-width:76ch}
+
+  .listen{margin:16px 0 4px; background:var(--panel2); border:1px solid var(--line); padding:12px 16px}
+  .listen .lhead{font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink2); margin-bottom:8px; font-weight:600}
+  .listen .lcap{color:var(--ink3); text-transform:none; letter-spacing:0; font-weight:400}
+  .listen .ldot{display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--hot); margin-right:8px; animation:pulse 2s ease-in-out infinite}
+  @keyframes pulse{50%{opacity:.35}}
+  @media (prefers-reduced-motion: reduce){.listen .ldot{animation:none}}
+  .listen audio{width:100%; height:36px}
+  .navbtns{display:flex; flex-wrap:wrap; gap:10px; margin-top:20px}
+  .navbtns a{display:inline-block; text-decoration:none; padding:9px 20px; font-weight:600; font-size:14.5px;
+    letter-spacing:.04em; border:1px solid var(--line); color:var(--ink)}
+  .navbtns a.primary{background:var(--amber); border-color:var(--amber); color:#14161a}
+  .navbtns a:not(.primary){background:var(--chip)}
+  .stats{display:flex; gap:12px; flex-wrap:wrap; margin:16px 0 6px}
+  .stat{flex:1 1 120px; background:var(--panel); border:1px solid var(--line); padding:14px; text-align:center}
+  .stat b{display:block; font-size:30px; color:var(--amber); font-family:"Bahnschrift","Arial Narrow",sans-serif}
+  .stat small{color:var(--ink3); letter-spacing:.12em; font-size:11px; text-transform:uppercase}
+  .rel{width:100%; border-collapse:collapse; font-size:14px}
+  .rel th{text-align:left; color:var(--ink3); font-weight:600; letter-spacing:.1em; text-transform:uppercase; font-size:11.5px; padding:6px 10px 6px 0; border-bottom:1px solid var(--line)}
+  .rel td{padding:7px 10px 7px 0; border-bottom:1px solid var(--line); color:var(--ink2); vertical-align:top}
+  .rel td b{color:var(--ink)} .rel .feat{color:var(--ink3); font-size:13px}
+  .tablewrap{overflow-x:auto}
+  .tree{font-family:Consolas,ui-monospace,monospace; font-size:13.5px; line-height:1.75; color:var(--ink2)}
+  .tree details{padding-left:18px} .tree > details{padding-left:0}
+  .tree summary{cursor:pointer; color:var(--ink); font-weight:600; list-style:none}
+  .tree summary::before{content:"▸ "; color:var(--amber)} .tree details[open] > summary::before{content:"▾ "}
+  .tree .leaf{padding-left:18px; color:var(--ink2)} .tree .count{color:var(--ink3)}
+  .log{border-left:2px solid var(--line); padding-left:18px; max-width:70ch}
+  .log .entry{margin-bottom:18px; color:var(--ink2)}
+  .log .date{color:var(--amber); font-size:12.5px; letter-spacing:.14em; font-weight:600}
+
+  .listen.ab .abrow{display:flex;flex-wrap:wrap;gap:14px;margin-top:4px}
+  .listen.ab .abcol{flex:1 1 240px}
+  .listen.ab .ablab{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:5px}
+  .listen.ab .ablab.abnew{color:var(--amber);font-weight:600}
+  .abtab{width:100%;border-collapse:collapse;margin-top:12px;font-size:13.5px}
+  .abtab th{text-align:left;color:var(--ink3);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px 4px 0;border-bottom:1px solid var(--line)}
+  .abtab td{padding:5px 10px 5px 0;border-bottom:1px solid var(--line);color:var(--ink2)}
+  .abtab td.mono{font-variant-numeric:tabular-nums}
+  .abtab td.up{color:var(--ok);font-weight:600}
+  .abtab td.dn{color:var(--hot);font-weight:600}
+  .abcap{font-size:13px;color:var(--ink3);margin:10px 0 0;max-width:66ch}
+  .abcap b{color:var(--ink2)}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">LMT Mell · A01 · Remix Series</div>
+  <h1>STACK SEASON<br>REMIXES</h1>
+  <p class="sub">The Aug 9 studio render came out muddy — measurably: sub up ~17 dB, vocals 4.5 dB down
+  in their own band, top end 7–8 dB dark, and the references parked at the arrangement tail printed
+  into the export (that's the 4:14). Four corrective mixes were built remotely from that render,
+  in two refinement cycles, every move measured. These are decision previews — the real re-export
+  happens in the session.</p>
+  <div class="navbtns">
+    <a class="primary" href="index.html">&larr; Portal</a>
+    <a href="tree.html">Browse the Tree</a>
+  </div>
+</header>
+
+<section class="song">
+  <div class="songhead"><span class="code disp">A/B</span><h2>WHAT WENT WRONG</h2>
+  <span class="verdict">the master drowned the song</span></div>
+  <div class="listen ab"><div class="abrow">
+    <div class="abcol"><div class="ablab">FL bounce — the target tone</div>
+      <audio controls preload="metadata" src="audio/stack-season-before.mp3"></audio></div>
+    <div class="abcol"><div class="ablab">Studio render — the muddy one</div>
+      <audio controls preload="metadata" src="audio/stack-season-after.mp3"></audio></div>
+  </div>
+  <p class="abcap">Three stacked causes, none of them song problems: the vox lanes trimmed too far down
+  in the rebalance; the new sub/808 overshooting from <b>no floor</b> to <b>all floor</b>; and channel 6's
+  parked references (plus the spillover takes) left live at the tail, printing ~1:40 of foreign music
+  after the song ends at 2:21.</p></div>
+</section>
+
+
+<section class="song">
+  <div class="songhead"><span class="code disp">MIX 1</span><h2>Match the original</h2></div>
+  <p class="credits">The muddy render's tone morphed back onto the FL bounce's measured fingerprint, the printed reference tail cut at 2:22, level matched to the original. Same song, same feel — without the FL bounce's clipping.</p>
+  <div class="listen"><div class="lhead"><span class="ldot"></span>Listen · full length</div>
+  <audio controls preload="metadata" src="audio/previews/stack-season-mix1-match-original.mp3"></audio></div>
+  <div class="chips"><span class="chip"><b>−12.5</b> LUFS — matches the bounce</span><span class="chip"><b>−0.5</b> dBTP, no overs</span><span class="chip"><b>≤0.2 dB</b> off the original, vocal band & mids</span></div>
+</section>
+<section class="song">
+  <div class="songhead"><span class="code disp">MIX 2</span><h2>Balanced master</h2></div>
+  <p class="credits">Mix 1 plus the floor the original never had — kept moderate, not the render's flood — glue, and a real master at catalog loudness.</p>
+  <div class="listen"><div class="lhead"><span class="ldot"></span>Listen · full length</div>
+  <audio controls preload="metadata" src="audio/previews/stack-season-mix2-balanced-master.mp3"></audio></div>
+  <div class="chips"><span class="chip"><b>−11.8</b> LUFS — 2026 release level</span><span class="chip"><b>−1.0</b> dBTP ceiling</span><span class="chip"><b>+3.6 dB</b> sub floor vs the bounce</span></div>
+</section>
+<section class="song">
+  <div class="songhead"><span class="code disp">MIX 3</span><h2>Clean &amp; crisp</h2></div>
+  <p class="credits">De-mud at 300 Hz, presence and air brought back, and a vocal ride — presence lifts only while the vocal is active. The beat MIDI behind it was consolidated 11 files → 7 clean tracks (in the vault).</p>
+  <div class="listen"><div class="lhead"><span class="ldot"></span>Listen · full length</div>
+  <audio controls preload="metadata" src="audio/previews/stack-season-mix3-clean-crisp.mp3"></audio></div>
+  <div class="chips"><span class="chip"><b>+1.2 dB</b> vocal band vs Mix 2</span><span class="chip"><b>−2 dB</b> at 300 Hz (mud)</span><span class="chip"><b>7</b> MIDI tracks, was 11 files</span></div>
+</section>
+<section class="song">
+  <div class="songhead"><span class="code disp">MIX 4</span><h2>Movement</h2></div>
+  <p class="credits">Mix 3 plus pump &amp; breathe: the 808 ducks everything above 180 Hz about 2 dB on each hit; air and stereo width lift between hits. The mix breathes against the grid.</p>
+  <div class="listen"><div class="lhead"><span class="ldot"></span>Listen · full length</div>
+  <audio controls preload="metadata" src="audio/previews/stack-season-mix4-movement.mp3"></audio></div>
+  <div class="chips"><span class="chip"><b>2.2 dB</b> duck per kick</span><span class="chip"><b>+0.8 dB</b> air between hits</span><span class="chip"><b>+15%</b> width between kicks</span></div>
+</section>
+
+<section class="song">
+  <div class="songhead"><span class="code disp">DATA</span><h2>THE NUMBERS</h2></div>
+  <p class="credits">Band values = each band's share of total energy (closer to 0 = more dominant). Cycle 2 shown.</p>
+  <div style="overflow-x:auto"><table class="abtab" style="min-width:560px">
+  <tr><th>Version</th><th>LUFS</th><th>dBTP</th><th>Crest</th><th>Vox band</th><th>Sub</th><th>Presence</th><th>Air</th></tr>
+  <tr><td>FL bounce (target)</td><td class="mono">−12.4</td><td class="mono dn">+0.36</td><td class="mono">15.8</td><td class="mono">−11.2</td><td class="mono">−19.7</td><td class="mono">−14.9</td><td class="mono">−10.2</td></tr>
+  <tr><td>Studio render</td><td class="mono">−19.7</td><td class="mono">−4.6</td><td class="mono">15.7</td><td class="mono dn">−15.7</td><td class="mono dn">−2.7</td><td class="mono dn">−22.2</td><td class="mono dn">−18.3</td></tr>
+  <tr><td><b>MIX 1</b></td><td class="mono">−12.5</td><td class="mono">−0.5</td><td class="mono">15.3</td><td class="mono up">−11.4</td><td class="mono">−16.1</td><td class="mono up">−15.0</td><td class="mono">−9.0</td></tr>
+  <tr><td><b>MIX 2</b></td><td class="mono">−11.9</td><td class="mono">−1.0</td><td class="mono">14.1</td><td class="mono">−11.6</td><td class="mono">−14.1</td><td class="mono">−15.2</td><td class="mono">−9.0</td></tr>
+  <tr><td><b>MIX 3</b></td><td class="mono">−11.9</td><td class="mono">−1.0</td><td class="mono">14.3</td><td class="mono up">−10.4</td><td class="mono">−13.9</td><td class="mono up">−13.4</td><td class="mono">−8.2</td></tr>
+  <tr><td><b>MIX 4</b></td><td class="mono">−12.0</td><td class="mono">−1.0</td><td class="mono">14.4</td><td class="mono up">−10.2</td><td class="mono">−13.3</td><td class="mono up">−13.1</td><td class="mono">−8.0</td></tr>
+  </table></div>
+
+  <div class="cols" style="margin-top:26px">
+    <div>
+      <h4>Honest caveats</h4>
+      <ul>
+        <li>Source is a <b>lossy full mix</b> — the vocal ride is a band ride, not a fader on vocal tracks.</li>
+        <li>Mix 1 keeps a touch more floor than the original on purpose — full-original sub recreates the no-floor flaw.</li>
+        <li>All four run <b>~1–2 dB brighter in air</b> than the bounce — a side effect of undoing the render's darkness. Judge by ear.</li>
+        <li>Mix 4's motion is pump/breathe, not literal warping — that needs the session.</li>
+      </ul>
+    </div>
+    <div>
+      <h4>The real fix, at the PC</h4>
+      <ul class="bring">
+        <li><b>Mute channel 6</b> (parked refs) before every export.</li>
+        <li>Vox group <b>+4.5 dB</b>; new sub/808 down <b>8–10 dB</b>.</li>
+        <li>Rebuild presence/air <b>at the source</b>, not with EQ after.</li>
+        <li>Swap in the <b>SIMPLIFIED MIDI</b> (7 tracks for 11 files).</li>
+        <li>Master stays: glue + limiter <b>−1 dBTP</b>, land ≈<b>−11.8 LUFS</b>.</li>
+        <li>A/B against <b>MIX 2</b> (safe) or <b>MIX 3</b> (forward).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>Remix series built 2026-08-09 off the studio render, two build–measure–critique cycles.
+Full method + metrics: <span class="file">audio/previews/REPORT.md</span> · vault copy in
+<span class="file">07 Mix Previews (remote)</span>.</footer>
+</div>
+
+</body>
+</html>
