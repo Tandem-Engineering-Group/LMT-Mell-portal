@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#14161a">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f0ede6">
+<meta name="robots" content="noindex, nofollow">
+<title>LMT MELL — THE NIGHT SHIFT</title>
+</head>
+<body>
+<style>
+  :root{
+    --bg:#14161a; --panel:#1b1e24; --panel2:#20242b; --line:#2c313a;
+    --ink:#e9e6df; --ink2:#a8a69e; --ink3:#7c7a74;
+    --amber:#e8a33d; --steel:#8fb3c9; --ok:#7dc98f; --hot:#d96b5f;
+    --chip:#262b33;
+  }
+  @media (prefers-color-scheme: light){:root{
+    --bg:#f0ede6; --panel:#faf8f3; --panel2:#f3f0e9; --line:#ddd8cd;
+    --ink:#23252a; --ink2:#5c5a54; --ink3:#8b887f;
+    --amber:#b57718; --steel:#4a7a99; --ok:#3d8a54; --hot:#b54334;
+    --chip:#e8e4da;
+  }}
+  :root[data-theme="dark"]{
+    --bg:#14161a; --panel:#1b1e24; --panel2:#20242b; --line:#2c313a;
+    --ink:#e9e6df; --ink2:#a8a69e; --ink3:#7c7a74;
+    --amber:#e8a33d; --steel:#8fb3c9; --ok:#7dc98f; --hot:#d96b5f;
+    --chip:#262b33;
+  }
+  :root[data-theme="light"]{
+    --bg:#f0ede6; --panel:#faf8f3; --panel2:#f3f0e9; --line:#ddd8cd;
+    --ink:#23252a; --ink2:#5c5a54; --ink3:#8b887f;
+    --amber:#b57718; --steel:#4a7a99; --ok:#3d8a54; --hot:#b54334;
+    --chip:#e8e4da;
+  }
+  *{box-sizing:border-box}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:"Segoe UI",system-ui,-apple-system,sans-serif;
+    font-size:16px; line-height:1.55; margin:0; padding:0 20px 80px;
+  }
+  .wrap{max-width:1020px; margin:0 auto}
+  h1,h2,h3,.disp{font-family:"Bahnschrift","Bahnschrift Condensed","Arial Narrow",system-ui,sans-serif}
+  .mono{font-family:Consolas,ui-monospace,monospace; font-variant-numeric:tabular-nums}
+
+  header{padding:56px 0 28px; border-bottom:2px solid var(--amber)}
+  .eyebrow{color:var(--amber); text-transform:uppercase; letter-spacing:.22em; font-size:12px; font-weight:600}
+  h1{font-size:clamp(34px,6vw,58px); line-height:1.02; margin:10px 0 8px; text-wrap:balance; letter-spacing:.01em}
+  .sub{color:var(--ink2); max-width:64ch}
+
+  .runline{display:flex; flex-wrap:wrap; gap:0; margin:34px 0 10px; border-left:2px solid var(--line)}
+  .run{flex:1 1 150px; min-width:150px; padding:10px 14px 12px; border-right:2px solid var(--line); border-top:2px solid var(--line); border-bottom:2px solid var(--line); background:var(--panel)}
+  .run .d{color:var(--amber); font-size:12px; letter-spacing:.14em; text-transform:uppercase; font-weight:600}
+  .run .t{font-weight:600; margin:2px 0}
+  .run .n{color:var(--ink2); font-size:13.5px}
+
+  section.song{background:var(--panel); border:1px solid var(--line); border-top:3px solid var(--amber); margin:44px 0; padding:26px 28px 30px}
+  .songhead{display:flex; flex-wrap:wrap; align-items:baseline; gap:12px 18px}
+  .code{color:var(--ink3); font-weight:600; letter-spacing:.1em}
+  h2{font-size:clamp(24px,3.6vw,34px); margin:0}
+  .verdict{margin-left:auto; background:var(--chip); border:1px solid var(--line); color:var(--amber); padding:4px 12px; font-size:12.5px; letter-spacing:.12em; text-transform:uppercase; font-weight:600; white-space:nowrap}
+  .credits{color:var(--ink2); margin:4px 0 0; font-size:14.5px}
+
+  .chips{display:flex; flex-wrap:wrap; gap:8px; margin:18px 0 6px}
+  .chip{background:var(--chip); border:1px solid var(--line); padding:5px 11px; font-size:13.5px; color:var(--ink2)}
+  .chip b{color:var(--ink); font-weight:600}
+  .chip.hot{border-color:var(--hot); color:var(--hot)} .chip.hot b{color:var(--hot)}
+  .chip.ok{border-color:var(--ok); color:var(--ok)} .chip.ok b{color:var(--ok)}
+
+  .meters{margin:22px 0 8px; background:var(--panel2); border:1px solid var(--line); padding:16px 18px 12px}
+  .meters .mhead{display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:6px}
+  .meters h3{margin:0 0 4px; font-size:15px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink2)}
+  .legend{font-size:12.5px; color:var(--ink3)}
+  .legend .sw{display:inline-block; width:14px; height:8px; background:var(--amber); vertical-align:middle; margin:0 4px 1px 10px; border-radius:2px}
+  .legend .tk{display:inline-block; width:3px; height:12px; background:var(--steel); vertical-align:middle; margin:0 4px 1px 10px}
+  .band{display:grid; grid-template-columns:82px 1fr 128px; gap:10px; align-items:center; padding:5px 0}
+  .band .bl{font-size:13px; color:var(--ink2); text-transform:uppercase; letter-spacing:.08em}
+  .rail{position:relative; height:14px; background:var(--bg); border:1px solid var(--line)}
+  .fill{position:absolute; left:0; top:2px; bottom:2px; background:var(--amber); border-radius:0 3px 3px 0; min-width:2px}
+  .band.flag .fill{background:var(--hot)}
+  .tick{position:absolute; top:-3px; bottom:-3px; width:3px; background:var(--steel)}
+  .band .bv{font-size:13px; color:var(--ink3); text-align:right}
+  .band .bv b{color:var(--ink); font-weight:600}
+  .mfoot{font-size:13px; color:var(--ink3); margin-top:8px}
+  .mfoot em{color:var(--hot); font-style:normal; font-weight:600}
+
+  .cols{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:20px}
+  @media (max-width:760px){.cols{grid-template-columns:1fr}}
+  h4{margin:0 0 8px; font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--amber);
+     font-family:"Bahnschrift","Arial Narrow",sans-serif}
+  ul{margin:0; padding-left:18px} li{margin:0 0 7px; color:var(--ink2)} li b{color:var(--ink); font-weight:600}
+  .read p{margin:0 0 12px; color:var(--ink2); max-width:66ch} .read p b{color:var(--ink)}
+  .bring li::marker{color:var(--amber)}
+  .did li::marker{color:var(--ok)}
+  .file{background:var(--chip); border:1px solid var(--line); padding:1px 7px; font-size:13px; font-family:Consolas,ui-monospace,monospace}
+
+  .closing{margin:52px 0 0}
+  .closing .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; margin-top:16px}
+  .closecard{background:var(--panel); border:1px solid var(--line); padding:18px 20px}
+  footer{margin-top:56px; color:var(--ink3); font-size:13px; border-top:1px solid var(--line); padding-top:14px; max-width:76ch}
+
+  .listen{margin:16px 0 4px; background:var(--panel2); border:1px solid var(--line); padding:12px 16px}
+  .listen .lhead{font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink2); margin-bottom:8px; font-weight:600}
+  .listen .lcap{color:var(--ink3); text-transform:none; letter-spacing:0; font-weight:400}
+  .listen .ldot{display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--hot); margin-right:8px; animation:pulse 2s ease-in-out infinite}
+  @keyframes pulse{50%{opacity:.35}}
+  @media (prefers-reduced-motion: reduce){.listen .ldot{animation:none}}
+  .listen audio{width:100%; height:36px}
+  .navbtns{display:flex; flex-wrap:wrap; gap:10px; margin-top:20px}
+  .navbtns a{display:inline-block; text-decoration:none; padding:9px 20px; font-weight:600; font-size:14.5px;
+    letter-spacing:.04em; border:1px solid var(--line); color:var(--ink)}
+  .navbtns a.primary{background:var(--amber); border-color:var(--amber); color:#14161a}
+  .navbtns a:not(.primary){background:var(--chip)}
+  .stats{display:flex; gap:12px; flex-wrap:wrap; margin:16px 0 6px}
+  .stat{flex:1 1 120px; background:var(--panel); border:1px solid var(--line); padding:14px; text-align:center}
+  .stat b{display:block; font-size:30px; color:var(--amber); font-family:"Bahnschrift","Arial Narrow",sans-serif}
+  .stat small{color:var(--ink3); letter-spacing:.12em; font-size:11px; text-transform:uppercase}
+  .rel{width:100%; border-collapse:collapse; font-size:14px}
+  .rel th{text-align:left; color:var(--ink3); font-weight:600; letter-spacing:.1em; text-transform:uppercase; font-size:11.5px; padding:6px 10px 6px 0; border-bottom:1px solid var(--line)}
+  .rel td{padding:7px 10px 7px 0; border-bottom:1px solid var(--line); color:var(--ink2); vertical-align:top}
+  .rel td b{color:var(--ink)} .rel .feat{color:var(--ink3); font-size:13px}
+  .tablewrap{overflow-x:auto}
+  .tree{font-family:Consolas,ui-monospace,monospace; font-size:13.5px; line-height:1.75; color:var(--ink2)}
+  .tree details{padding-left:18px} .tree > details{padding-left:0}
+  .tree summary{cursor:pointer; color:var(--ink); font-weight:600; list-style:none}
+  .tree summary::before{content:"▸ "; color:var(--amber)} .tree details[open] > summary::before{content:"▾ "}
+  .tree .leaf{padding-left:18px; color:var(--ink2)} .tree .count{color:var(--ink3)}
+  .log{border-left:2px solid var(--line); padding-left:18px; max-width:70ch}
+  .log .entry{margin-bottom:18px; color:var(--ink2)}
+  .log .date{color:var(--amber); font-size:12.5px; letter-spacing:.14em; font-weight:600}
+
+  .listen.ab .abrow{display:flex;flex-wrap:wrap;gap:14px;margin-top:4px}
+  .listen.ab .abcol{flex:1 1 240px}
+  .listen.ab .ablab{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:5px}
+  .listen.ab .ablab.abnew{color:var(--amber);font-weight:600}
+  .abtab{width:100%;border-collapse:collapse;margin-top:12px;font-size:13.5px}
+  .abtab th{text-align:left;color:var(--ink3);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px 4px 0;border-bottom:1px solid var(--line)}
+  .abtab td{padding:5px 10px 5px 0;border-bottom:1px solid var(--line);color:var(--ink2)}
+  .abtab td.mono{font-variant-numeric:tabular-nums}
+  .abtab td.up{color:var(--ok);font-weight:600}
+  .abtab td.dn{color:var(--hot);font-weight:600}
+  .abcap{font-size:13px;color:var(--ink3);margin:10px 0 0;max-width:66ch}
+  .abcap b{color:var(--ink2)}
+
+  /* --- site-wide usability pass --- */
+  a:focus-visible,audio:focus-visible,summary:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+  audio{max-width:100%}
+  @media (max-width:560px){
+    .verdict{white-space:normal;margin-left:0}
+    section.song{padding:20px 16px 24px}
+  }
+
+  /* --- night shift tab --- */
+  .trk{display:grid;grid-template-columns:74px 110px 1.1fr 1.6fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);align-items:start}
+  .trk .clk{color:var(--amber);font-weight:600;font-size:13px;padding-top:2px}
+  .trk .slot{font-family:"Bahnschrift","Arial Narrow",sans-serif;letter-spacing:.14em;font-size:12px;color:var(--ink3);padding-top:3px}
+  .trk .tname{font-size:16.5px}
+  .trk .tmeta{color:var(--ink3);font-size:12.5px;margin-top:3px}
+  .trk .twhy{color:var(--ink2);font-size:14px}
+  .trk .tstat{margin-top:6px;font-size:12.5px;color:var(--ink3);text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+  @media (max-width:700px){.trk{grid-template-columns:64px 1fr;grid-template-areas:'clk slot' 'name name' 'why why'}
+    .trk .clk{grid-area:clk}.trk .slot{grid-area:slot}.trk .tname{grid-area:name}.trk .twhy{grid-area:why}}
+</style>
+<div class="wrap">
+<header>
+  <div class="eyebrow">LMT Mell · The Tape · Summer '26</div>
+  <h1>THE NIGHT<br>SHIFT</h1>
+  <p class="sub">Seven Detroit-length tracks, one night on the clock — about 16 and a half minutes,
+  built to run with no skips and loop twice on a cross-town drive. Every song was cut in the same
+  21-day July sprint, on his own beats, on one sound: keys and violins over a pitched 808, triple-time
+  hats, and one bare moment per record where the noise drops and he's alone. Clock-in, the block,
+  the crew, the doubt at 3 AM, the pay-off, the mirror at dawn.</p>
+  <div class="navbtns">
+    <a class="primary" href="index.html">&larr; Portal</a>
+    <a href="remixes.html">A01 Stack Season</a>
+    <a href="remixes-6734.html">A02 6734</a>
+    <a href="remixes-just-like-me.html">A03 Just Like Me</a>
+    <a href="tree.html">Browse the Tree</a>
+  </div>
+</header>
+
+<section class="song">
+  <div class="songhead"><span class="code disp">WHY</span><h2>THE SHAPE</h2>
+  <span class="verdict">one summer · one sound · one night</span></div>
+  <div class="cols" style="margin-top:14px">
+    <div class="read">
+      <p><b>The material already is the form.</b> The three finished anchors run 2:22, 2:24 and 2:49 —
+      Detroit length. Two sit in D♯ minor, one in G minor next to Equity. The tape opens and closes
+      in the home key.</p>
+      <p><b>The numbers are a thread.</b> He released <b>6738</b> in 2022. This tape carries <b>6734</b> —
+      four doors down, four years later. The catalog is quietly a map, and the sequence reads it out loud.</p>
+    </div>
+    <div class="read">
+      <p><b>The sprint was all his.</b> Every anchor and every first-choice pick was cut on his own
+      production — the vault shows the borrowed-beat sessions all live <i>outside</i> the July window.
+      This tape is the month the sound became self-contained.</p>
+      <p><b>Where he is:</b> six years in, five releases already this year, mixes maturing on a measured
+      line every drop. Not an introduction — a consolidation.</p>
+    </div>
+  </div>
+</section>
+
+<section class="song">
+  <div class="songhead"><span class="code disp">7</span><h2>THE SEQUENCE</h2></div>
+  
+  <div class="trk">
+    <div class="clk mono">11:00 PM</div>
+    <div class="slot">CLOCK-IN</div>
+    <div class="tname"><b>jul23-336 <span class='feat'>(instrumental intro)</span></b><div class="tmeta mono">beat only · ~1:15</div></div>
+    <div class="twhy">Cut during crew week. Measured in Stack Season's key family — the cold open that beat-switches straight into track 2.<div class="tstat">to cut</div></div>
+  </div>
+  <div class="trk">
+    <div class="clk mono">11:15 PM</div>
+    <div class="slot">THE SPRINT</div>
+    <div class="tname"><b>STACK SEASON <span class='feat'>with OwnLane &amp; RelSleaze</span></b><div class="tmeta mono">2:22 · D♯m</div></div>
+    <div class="twhy">The furthest-out record opens the night at full speed. Its mid-song breakdown is the tape's first bare moment.<div class="tstat"><a href='remixes.html' style='color:var(--ok)'>FINAL + 3 maps ready →</a></div></div>
+  </div>
+  <div class="trk">
+    <div class="clk mono">12:30 AM</div>
+    <div class="slot">THE BLOCK</div>
+    <div class="tname"><b>6734 <span class='feat'>with Bandup</span></b><div class="tmeta mono">2:24 · Gm</div></div>
+    <div class="twhy">The address record — four doors down and four years on from 6738 ('22). The numbers are a map of where he's been.<div class="tstat"><a href='remixes-6734.html' style='color:var(--ok)'>FINAL + 3 maps ready →</a></div></div>
+  </div>
+  <div class="trk">
+    <div class="clk mono">1:45 AM</div>
+    <div class="slot">THE CREW</div>
+    <div class="tname"><b>go in <span class='feat'>with OwnLane &amp; Bandup</span></b><div class="tmeta mono">~2:20 · verify</div></div>
+    <div class="twhy">Crew-week record — its rough bounces already live inside 6734's session as references, so the kinship is proven on disk.<div class="tstat">to bounce + verify</div></div>
+  </div>
+  <div class="trk">
+    <div class="clk mono">3:00 AM</div>
+    <div class="slot">THE 3 AM</div>
+    <div class="tname"><b>trust in God</b><div class="tmeta mono">~2:30 · verify</div></div>
+    <div class="twhy">The counterweight. Every no-skip tape needs one window-down-alone track; his records already do this in miniature.<div class="tstat">to verify at the desk</div></div>
+  </div>
+  <div class="trk">
+    <div class="clk mono">4:15 AM</div>
+    <div class="slot">THE PAY-OFF</div>
+    <div class="tname"><b>MILLY</b><div class="tmeta mono">~2:30 · verify</div></div>
+    <div class="twhy">The biggest beat in the vault — 3,917 MIDI notes, session rebuilt and validated. The tape's maximal moment before the quiet.<div class="tstat">set ready · lyric to verify</div></div>
+  </div>
+  <div class="trk">
+    <div class="clk mono">5:30 AM</div>
+    <div class="slot">THE MIRROR</div>
+    <div class="tname"><b>JUST LIKE ME</b><div class="tmeta mono">2:49 · D♯m</div></div>
+    <div class="twhy">The tape's first finished record closes it — leading with the bare-vocal entrance the others only hint at. The dawn.<div class="tstat"><a href='remixes-just-like-me.html' style='color:var(--ok)'>FINAL + 3 maps ready →</a></div></div>
+  </div>
+  <p class="abcap" style="margin-top:14px">≈ 16:10–16:40 total. Speed first, story second, room third,
+  silence fourth, size fifth, mirror last. The two bare-moment records bookend it — track 2 hides its
+  breakdown mid-song, track 7 leads with it.</p>
+</section>
+
+<section class="song">
+  <div class="songhead"><span class="code disp">DATA</span><h2>THE PICK MATRIX</h2></div>
+  <p class="credits">Every unreleased session in the vault (210) plus all 66 beats were swept; season lock kept
+  it to 2026. Scores 1–5. *Lyrics are inferred from titles and session context until the desk listen —
+  weak ones get rewritten; the recording dates don't move.</p>
+  <div style="overflow-x:auto">
+<table class="abtab" style="min-width:640px">
+<tr><th>Candidate</th><th>Cut</th><th>Sound</th><th>Mood</th><th>Lyrics*</th><th>Det '26</th><th>Where he is</th><th>Ready</th><th>Call</th></tr>
+<tr><td><b>go in</b></td><td class="mono">Jul 23</td><td class="mono">5</td><td class="mono">5</td><td class="mono">4</td><td class="mono">5</td><td class="mono">5</td><td class="mono">4</td><td class="up">crew slot — on the tape</td></tr>
+<tr><td><b>trust in God</b></td><td class="mono">early '26</td><td class="mono">3</td><td class="mono">5</td><td class="mono">5</td><td class="mono">3</td><td class="mono">5</td><td class="mono">2</td><td class="up">3 AM slot — on the tape</td></tr>
+<tr><td><b>MILLY</b></td><td class="mono">late Jul</td><td class="mono">5</td><td class="mono">4</td><td class="mono">3</td><td class="mono">4</td><td class="mono">4</td><td class="mono">5</td><td class="up">pay-off slot — on the tape</td></tr>
+<tr><td><b>dEADSTOCK OPEN</b></td><td class="mono">Jul 23</td><td class="mono">4</td><td class="mono">5</td><td class="mono">4</td><td class="mono">5</td><td class="mono">5</td><td class="mono">3</td><td>crew alternate / intro alternate</td></tr>
+<tr><td><b>wORK!</b></td><td class="mono">Jun</td><td class="mono">4</td><td class="mono">5</td><td class="mono">4</td><td class="mono">4</td><td class="mono">5</td><td class="mono">5</td><td>pay-off alternate — ready today</td></tr>
+<tr><td><b>get it out the mud</b></td><td class="mono">spring</td><td class="mono">4</td><td class="mono">4</td><td class="mono">4</td><td class="mono">4</td><td class="mono">5</td><td class="mono">2</td><td>3 AM alternate</td></tr>
+<tr><td><b>bandup×lmt×ownlane</b></td><td class="mono">Jul 22</td><td class="mono">4</td><td class="mono">4</td><td class="mono">3</td><td class="mono">5</td><td class="mono">5</td><td class="mono">2</td><td>6734's sibling — swaps in only if the comp says so</td></tr>
+<tr><td><b>65X34X67</b></td><td class="mono">sprint close</td><td class="mono">4</td><td class="mono">4</td><td class="mono">3</td><td class="mono">5</td><td class="mono">5</td><td class="mono">2</td><td class="dn">remake-only — beat isn't his yet; title too on-theme to lose</td></tr>
+<tr><td><b>night &amp; day</b></td><td class="mono">spring</td><td class="mono">4</td><td class="mono">4</td><td class="mono">3</td><td class="mono">4</td><td class="mono">4</td><td class="mono">2</td><td class="dn">remake-only — beat isn't his yet</td></tr>
+<tr><td><b>keke</b></td><td class="mono">Jun</td><td class="mono">4</td><td class="mono">3</td><td class="mono">2</td><td class="mono">4</td><td class="mono">3</td><td class="mono">5</td><td class="dn">cut — beat isn't his + weakest fit</td></tr>
+</table></div>
+  <p class="abcap" style="margin-top:12px">"Remake-only" = the song rides a beat that isn't his yet; the vault's
+  MIDI pipeline rebuilds beats in-house (same drill as the terps and EXOTIC rebuilds), so a remake keeps the
+  vocal and makes the beat ownable.</p>
+</section>
+
+<section class="song">
+  <div class="songhead"><span class="code disp">NOW</span><h2>WHERE IT STANDS</h2></div>
+  <div class="stats">
+    <div class="stat"><b>3</b><small>anchors at FINAL + maps</small></div>
+    <div class="stat"><b>4</b><small>slots picked, to verify</small></div>
+    <div class="stat"><b>1</b><small>evening of listens to lock</small></div>
+    <div class="stat"><b>~16:30</b><small>runtime</small></div>
+  </div>
+  <ul class="bring" style="margin-top:14px">
+    <li><b>At the desk:</b> one listen each — go in, trust in God, MILLY (plus alternates) — converts every starred score to fact.</li>
+    <li><b>Bounce "go in"</b> — the only first-choice pick without a current bounce.</li>
+    <li><b>Then the drill</b> each pick already proven on the anchors: deep listen → feed audit → FINAL + maps → board guide.</li>
+  </ul>
+  <a class="notebtn" href="https://github.com/Tandem-Engineering-Group/LMT-Mell-portal/issues/new?title=Tape+notes%3A+THE+NIGHT+SHIFT&body=%2A%2AAbout%3A%2A%2A+THE+NIGHT+SHIFT+%287-track+tape+plan%29%0A%2A%2ATrack+%2F+slot%3A%2A%2A+%0A%2A%2ANotes%3A%2A%2A+%0A%0A_Filed+from+the+portal+%E2%80%94+these+notes+get+pulled+into+the+tape+sessions._" target="_blank" rel="noopener">✎ Drop tape notes</a>
+</section>
+
+<footer>Working plan, subject to the desk listens · anchors playable on their own tabs ·
+full A&amp;R matrix and reasoning in the vault. Latest released music on
+<a href="https://music.apple.com/us/artist/lmt-mell/1509553450" target="_blank" rel="noopener" style="color:var(--amber)">Apple Music</a>.</footer>
+</div>
+<script>
+document.addEventListener('play', function (e) {
+  if (e.target && e.target.tagName === 'AUDIO') {
+    document.querySelectorAll('audio').forEach(function (a) { if (a !== e.target) a.pause(); });
+  }
+}, true);
+</script>
+</body>
+</html>
