@@ -53,3 +53,11 @@ Verified against the shipped files and largely correct:
   respecting the catalog's measured dynamics trend (streaming normalizes to −14 anyway).
   Going hotter is one parameter if the room disagrees.
 - Their reminder stands: these mp3s are previews — distribute from 24-bit WAVs out of the session.
+
+**v3.1 addendum (6734 only):** the reviewer's v1-vs-v3 overlay showed 60–120 still a hole.
+Root cause found and fixed: the harmonic generator used an odd-symmetric saturator (tanh),
+which cannot produce the 2nd harmonic — 48 Hz could never become 96 Hz. An asymmetric
+(half-wave) shaper now generates the even harmonics; shipped file verifies at +1.9 dB vs
+flanks (model JLM: +0.2), sub 30.3%, −10.8 LUFS, −1.33 dBTP. Two earlier attempts (EQ boost,
+sub clipper) failed the shipped-file check because the limiter kept shaving transient boosts —
+only sustained generated harmonics survive mastering.
