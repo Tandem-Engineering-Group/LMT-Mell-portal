@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#14161a">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f0ede6">
+<meta name="robots" content="noindex, nofollow">
+<title>LMT MELL &mdash; Three Masters</title>
+</head>
+<body>
+<style>
+  :root{
+    --bg:#14161a; --panel:#1b1e24; --panel2:#20242b; --line:#2c313a;
+    --ink:#e9e6df; --ink2:#a8a69e; --ink3:#7c7a74;
+    --amber:#e8a33d; --steel:#8fb3c9; --ok:#7dc98f; --hot:#d96b5f;
+    --chip:#262b33;
+  }
+  @media (prefers-color-scheme: light){:root{
+    --bg:#f0ede6; --panel:#faf8f3; --panel2:#f3f0e9; --line:#ddd8cd;
+    --ink:#23252a; --ink2:#5c5a54; --ink3:#8b887f;
+    --amber:#b57718; --steel:#4a7a99; --ok:#3d8a54; --hot:#b54334;
+    --chip:#e8e4da;
+  }}
+  :root[data-theme="dark"]{
+    --bg:#14161a; --panel:#1b1e24; --panel2:#20242b; --line:#2c313a;
+    --ink:#e9e6df; --ink2:#a8a69e; --ink3:#7c7a74;
+    --amber:#e8a33d; --steel:#8fb3c9; --ok:#7dc98f; --hot:#d96b5f;
+    --chip:#262b33;
+  }
+  :root[data-theme="light"]{
+    --bg:#f0ede6; --panel:#faf8f3; --panel2:#f3f0e9; --line:#ddd8cd;
+    --ink:#23252a; --ink2:#5c5a54; --ink3:#8b887f;
+    --amber:#b57718; --steel:#4a7a99; --ok:#3d8a54; --hot:#b54334;
+    --chip:#e8e4da;
+  }
+  *{box-sizing:border-box}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:"Segoe UI",system-ui,-apple-system,sans-serif;
+    font-size:16px; line-height:1.55; margin:0; padding:0 20px 80px;
+  }
+  .wrap{max-width:1020px; margin:0 auto}
+  h1,h2,h3,.disp{font-family:"Bahnschrift","Bahnschrift Condensed","Arial Narrow",system-ui,sans-serif}
+  .mono{font-family:Consolas,ui-monospace,monospace; font-variant-numeric:tabular-nums}
+
+  header{padding:56px 0 28px; border-bottom:2px solid var(--amber)}
+  .eyebrow{color:var(--amber); text-transform:uppercase; letter-spacing:.22em; font-size:12px; font-weight:600}
+  h1{font-size:clamp(34px,6vw,58px); line-height:1.02; margin:10px 0 8px; text-wrap:balance; letter-spacing:.01em}
+  .sub{color:var(--ink2); max-width:64ch}
+
+  
+  .navbtns{display:flex; flex-wrap:wrap; gap:10px; margin-top:20px}
+  .navbtns a{display:inline-block; text-decoration:none; padding:9px 20px; font-weight:600;
+    font-size:14.5px; letter-spacing:.04em; border:1px solid var(--line); color:var(--ink); background:var(--chip)}
+  .navbtns a.primary{background:var(--amber); border-color:var(--amber); color:#14161a}
+  section.song{background:var(--panel); border:1px solid var(--line); border-top:3px solid var(--amber);
+    margin:40px 0; padding:24px 26px 28px}
+  .songhead{display:flex; flex-wrap:wrap; align-items:baseline; gap:12px 18px}
+  .code{color:var(--ink3); font-weight:600; letter-spacing:.1em}
+  h2{font-size:clamp(23px,3.4vw,32px); margin:0}
+  .verdict{margin-left:auto; background:var(--chip); border:1px solid var(--line); color:var(--amber);
+    padding:4px 12px; font-size:12.5px; letter-spacing:.12em; text-transform:uppercase; font-weight:600}
+  .credits{color:var(--ink2); margin:4px 0 0; font-size:14.5px}
+  .mixgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; margin-top:20px}
+  .mixcard{background:var(--panel2); border:1px solid var(--line); padding:16px 18px 18px}
+  .mixcard.pick{border-color:var(--amber)}
+  .mixname{font-family:"Bahnschrift","Arial Narrow",sans-serif; font-size:19px; font-weight:600; letter-spacing:.02em}
+  .mixname .id{color:var(--amber); margin-right:7px}
+  .mixblurb{color:var(--ink2); font-size:13.5px; margin:6px 0 12px; min-height:3.4em}
+  .chips{display:flex; flex-wrap:wrap; gap:7px; margin:0 0 12px}
+  .chip{background:var(--chip); border:1px solid var(--line); padding:4px 9px; font-size:12.5px; color:var(--ink2)}
+  .chip b{color:var(--ink); font-weight:600}
+  .chip.ok{border-color:var(--ok); color:var(--ok)} .chip.ok b{color:var(--ok)}
+  .mixcard audio{width:100%; height:36px}
+  .pickpill{display:inline-block; background:var(--amber); color:#14161a; font-size:11px;
+    letter-spacing:.12em; text-transform:uppercase; font-weight:700; padding:2px 8px; margin-left:8px}
+  .srcline{color:var(--ink3); font-size:13px; margin-top:14px}
+  .panel{background:var(--panel); border:1px solid var(--line); padding:20px 22px; margin:18px 0}
+  h4{margin:0 0 10px; font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--amber);
+     font-family:"Bahnschrift","Arial Narrow",sans-serif}
+  ul{margin:0; padding-left:18px} li{margin:0 0 7px; color:var(--ink2)} li b{color:var(--ink)}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+  @media (max-width:760px){.grid2{grid-template-columns:1fr}}
+  footer{margin-top:52px; color:var(--ink3); font-size:13px; border-top:1px solid var(--line);
+    padding-top:14px; max-width:78ch}
+</style>
+<div class="wrap">
+<header>
+  <div class="eyebrow">LMT Mell &nbsp;&middot;&nbsp; upload-ready masters</div>
+  <h1>Three Masters, Three Songs</h1>
+  <p class="sub">One brief: <b>make the vocals clear</b>. Every mix here lifts the vocal
+  presence band <em>only while he is actually rapping</em> &mdash; activity-detected, so the
+  hats and keys do not come up with it. Nine masters, all peak-safe for Apple. Pick a lane
+  per song; the middle one is the safe default.</p>
+  <div class="navbtns">
+    <a class="primary" href="https://music.apple.com/us/artist/lmt-mell/1509553450">Listen on Apple Music</a>
+    <a href="index.html">Back to the portal</a>
+    <a href="album.html">THE NIGHT SHIFT</a>
+    <a href="tree.html">Browse the Tree</a>
+  </div>
+</header>
+
+<div class="panel">
+  <h4>Which one to send</h4>
+  <div class="grid2">
+    <ul>
+      <li><b>MIX A &mdash; VOCAL FORWARD.</b> The most words-per-listen. Biggest presence
+      lift, tightest low end, most dynamic. Send this if the note was &ldquo;I can&rsquo;t
+      hear him.&rdquo;</li>
+      <li><b>MIX B &mdash; CATALOG MATCH.</b> Sits in his released 2026 balance and
+      loudness. The safe pick, and the one to send if you are only sending one.</li>
+    </ul>
+    <ul>
+      <li><b>MIX C &mdash; CLUB.</b> More weight and width, hotter. Vocals still lifted but
+      the low end leads. For systems and the car.</li>
+      <li><b>All nine</b> are 24-bit / 48 kHz WAV at <b>&minus;1.30 dBTP</b>, which
+      satisfies Apple&rsquo;s &minus;1 dBTP requirement. Every source was clipping; none of
+      these are.</li>
+    </ul>
+  </div>
+</div>
+
+  <section class="song" id="a01">
+    <div class="songhead">
+      <span class="code disp">A01</span><h2>STACK SEASON</h2>
+      <span class="verdict">3 masters ready</span>
+    </div>
+    <p class="credits">lmt x OwnLane x RelSleaze &nbsp;&middot;&nbsp; <a href="remixes.html" style="color:var(--amber)">remix series &rarr;</a></p>
+    <div class="mixgrid">
+      <div class="mixcard">
+        <div class="mixname"><span class="id">MIX A</span>VOCAL FORWARD</div>
+        <p class="mixblurb">maximum intelligibility - vocals sit on top, low end tight, most dynamic</p>
+        <div class="chips">
+          <span class="chip"><b>-11.6</b> LUFS</span>
+          <span class="chip ok"><b>-1.30</b> dBTP</span>
+          <span class="chip ok">vocals <b>+1.3 dB</b></span>
+        </div>
+        <audio aria-label="Stack Season MIX A VOCAL FORWARD" controls preload="none" src="audio/masters/stack-season-mixa.mp3"></audio>
+      </div>
+      <div class="mixcard pick">
+        <div class="mixname"><span class="id">MIX B</span>CATALOG MATCH<span class="pickpill">start here</span></div>
+        <p class="mixblurb">his released 2026 balance and loudness - the safe pick</p>
+        <div class="chips">
+          <span class="chip"><b>-10.9</b> LUFS</span>
+          <span class="chip ok"><b>-1.30</b> dBTP</span>
+          <span class="chip ok">vocals <b>+1.1 dB</b></span>
+        </div>
+        <audio aria-label="Stack Season MIX B CATALOG MATCH" controls preload="none" src="audio/masters/stack-season-mixb.mp3"></audio>
+      </div>
+      <div class="mixcard">
+        <div class="mixname"><span class="id">MIX C</span>CLUB</div>
+        <p class="mixblurb">weight and width, hotter for systems - vocals still lifted, more glue</p>
+        <div class="chips">
+          <span class="chip"><b>-10.1</b> LUFS</span>
+          <span class="chip ok"><b>-1.30</b> dBTP</span>
+          <span class="chip ok">vocals <b>+1.0 dB</b></span>
+        </div>
+        <audio aria-label="Stack Season MIX C CLUB" controls preload="none" src="audio/masters/stack-season-mixc.mp3"></audio>
+      </div>
+    </div>
+    <p class="srcline">Source measured <b>-12.3 LUFS</b> at <b>+0.35 dBTP</b> (clipping) &nbsp;&middot;&nbsp; only an mp3 bounce exists as source. Upload file per mix: <span class="mono">Stack Season - MIX _ (master 24bit).wav</span> &nbsp;~42 MB each.</p>
+  </section>
+  <section class="song" id="a02">
+    <div class="songhead">
+      <span class="code disp">A02</span><h2>6734</h2>
+      <span class="verdict">3 masters ready</span>
+    </div>
+    <p class="credits">LMT x Bandup &nbsp;&middot;&nbsp; <a href="remixes-6734.html" style="color:var(--amber)">remix series &rarr;</a></p>
+    <div class="mixgrid">
+      <div class="mixcard">
+        <div class="mixname"><span class="id">MIX A</span>VOCAL FORWARD</div>
+        <p class="mixblurb">maximum intelligibility - vocals sit on top, low end tight, most dynamic</p>
+        <div class="chips">
+          <span class="chip"><b>-11.4</b> LUFS</span>
+          <span class="chip ok"><b>-1.30</b> dBTP</span>
+          <span class="chip ok">vocals <b>+2.0 dB</b></span>
+        </div>
+        <audio aria-label="6734 MIX A VOCAL FORWARD" controls preload="none" src="audio/masters/6734-mixa.mp3"></audio>
+      </div>
+      <div class="mixcard pick">
+        <div class="mixname"><span class="id">MIX B</span>CATALOG MATCH<span class="pickpill">start here</span></div>
+        <p class="mixblurb">his released 2026 balance and loudness - the safe pick</p>
+        <div class="chips">
+          <span class="chip"><b>-10.7</b> LUFS</span>
+          <span class="chip ok"><b>-1.30</b> dBTP</span>
+          <span class="chip ok">vocals <b>+2.0 dB</b></span>
+        </div>
+        <audio aria-label="6734 MIX B CATALOG MATCH" controls preload="none" src="audio/masters/6734-mixb.mp3"></audio>
+      </div>
+      <div class="mixcard">
+        <div class="mixname"><span class="id">MIX C</span>CLUB</div>
+        <p class="mixblurb">weight and width, hotter for systems - vocals still lifted, more glue</p>
+        <div class="chips">
+          <span class="chip"><b>-9.9</b> LUFS</span>
+          <span class="chip ok"><b>-1.30</b> dBTP</span>
+          <span class="chip ok">vocals <b>+1.5 dB</b></span>
+        </div>
+        <audio aria-label="6734 MIX C CLUB" controls preload="none" src="audio/masters/6734-mixc.mp3"></audio>
+      </div>
+    </div>
+    <p class="srcline">Source measured <b>-8.1 LUFS</b> at <b>+0.61 dBTP</b> (clipping) &nbsp;&middot;&nbsp; source was already limited and clipped at +0.6 dBTP. Upload file per mix: <span class="mono">6734 - MIX _ (master 24bit).wav</span> &nbsp;~42 MB each.</p>
+  </section>
+  <section class="song" id="a03">
+    <div class="songhead">
+      <span class="code disp">A03</span><h2>JUST LIKE ME</h2>
+      <span class="verdict">3 masters ready</span>
+    </div>
+    <p class="credits">solo - Exotic Express Tape &nbsp;&middot;&nbsp; <a href="remixes-just-like-me.html" style="color:var(--amber)">remix series &rarr;</a></p>
+    <div class="mixgrid">
+      <div class="mixcard">
+        <div class="mixname"><span class="id">MIX A</span>VOCAL FORWARD</div>
+        <p class="mixblurb">maximum intelligibility - vocals sit on top, low end tight, most dynamic</p>
+        <div class="chips">
+          <span class="chip"><b>-11.6</b> LUFS</span>
+          <span class="chip ok"><b>-1.30</b> dBTP</span>
+          <span class="chip ok">vocals <b>+3.2 dB</b></span>
+        </div>
+        <audio aria-label="JUST LIKE ME MIX A VOCAL FORWARD" controls preload="none" src="audio/masters/just-like-me-mixa.mp3"></audio>
+      </div>
+      <div class="mixcard pick">
+        <div class="mixname"><span class="id">MIX B</span>CATALOG MATCH<span class="pickpill">start here</span></div>
+        <p class="mixblurb">his released 2026 balance and loudness - the safe pick</p>
+        <div class="chips">
+          <span class="chip"><b>-11.0</b> LUFS</span>
+          <span class="chip ok"><b>-1.30</b> dBTP</span>
+          <span class="chip ok">vocals <b>+3.2 dB</b></span>
+        </div>
+        <audio aria-label="JUST LIKE ME MIX B CATALOG MATCH" controls preload="none" src="audio/masters/just-like-me-mixb.mp3"></audio>
+      </div>
+      <div class="mixcard">
+        <div class="mixname"><span class="id">MIX C</span>CLUB</div>
+        <p class="mixblurb">weight and width, hotter for systems - vocals still lifted, more glue</p>
+        <div class="chips">
+          <span class="chip"><b>-10.2</b> LUFS</span>
+          <span class="chip ok"><b>-1.30</b> dBTP</span>
+          <span class="chip ok">vocals <b>+2.9 dB</b></span>
+        </div>
+        <audio aria-label="JUST LIKE ME MIX C CLUB" controls preload="none" src="audio/masters/just-like-me-mixc.mp3"></audio>
+      </div>
+    </div>
+    <p class="srcline">Source measured <b>-11.6 LUFS</b> at <b>+0.63 dBTP</b> (clipping) &nbsp;&middot;&nbsp; genuine 24-bit / 48 kHz source - the best of the three. Upload file per mix: <span class="mono">JUST LIKE ME - MIX _ (master 24bit).wav</span> &nbsp;~49 MB each.</p>
+  </section>
+<div class="panel">
+  <h4>Uploading &mdash; read this bit</h4>
+  <div class="grid2">
+    <ul>
+      <li>Upload the <b>(master 24bit).wav</b> from each song&rsquo;s
+      <span class="mono">05 Ableton Exports</span> folder. That is the delivery asset.</li>
+      <li>The players above are <b>mp3 previews</b>, trimmed 1&ndash;2 dB below the WAV
+      because mp3 encoders overshoot the ceiling. Verified under &minus;1 dBTP after
+      decoding too.</li>
+    </ul>
+    <ul>
+      <li>Apple normalises playback with Sound Check &mdash; it will pull these toward
+      &minus;16 LUFS by itself. Delivering at &minus;10 to &minus;11.5 keeps the dynamics
+      his catalogue has been trending toward since <i>In Yo Dreams</i>.</li>
+      <li><b>Not</b> formal &ldquo;Apple Digital Masters&rdquo; for A01/A02 &mdash; that
+      badge needs a 24-bit/88.2 kHz+ source and those two only exist as mp3 bounces. Still
+      fully upload-ready. A WAV bounce of the instrumentals from Mell removes the ceiling.</li>
+    </ul>
+  </div>
+</div>
+<footer>
+  Chain per mix: rumble filter &rarr; per-song corrective EQ from the measured faults
+  &rarr; activity-keyed vocal presence lift + de-mud &rarr; de-esser &rarr; widening above
+  250 Hz (lows stay mono) &rarr; glue &rarr; 4&times;-oversampled true-peak limiter.
+  Loudness by BS.1770 gated integration; true peak measured at 4&times; oversampling on the
+  WAV <i>and</i> on the decoded preview. Mastered from the full mix, not stems &mdash;
+  per-lane balance lives in the Ableton session. Unreleased material, not for distribution.
+</footer>
+</div>
+</body>
+</html>
